@@ -12,6 +12,17 @@ set shiftwidth=4
 " 设置取消自动备份
 set nobackup
 
+" 设置当前行高亮
+set cursorline
+
+" 设置自动缩进
+set autoindent
+
+" 设置 vim 自动补全
+set wildmenu
+
+set updatetime=300
+
 " 插件配置
 call plug#begin('~/.config/nvim/plugged')
 
@@ -26,6 +37,8 @@ Plug 'vim-airline/vim-airline'
 
 " Java 开发者的最爱 Getter and Setter
 Plug 'dinduks/vim-java-get-set'
+
+Plug 'scrooloose/nerdtree'
 
 call plug#end()
 
@@ -49,3 +62,12 @@ function! ShowDocumentation()
 		call feedkeys('K', 'in')
 	endif
 endfunction
+
+" 自动侦测文件类型
+filetype plugin indent on
+
+" 配置nerdtree快捷键
+map <C-n> :NERDTreeMirror<CR>
+map <C-n> :NERDTreeToggle<CR>
+
+nmap <C-a> <ESC>ggVG
